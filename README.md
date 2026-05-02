@@ -8,11 +8,11 @@ Everything here runs on free-tier infrastructure and public datasets, so you can
 
 ## May 2026: Can a virtual cell model predict drug outcomes?
 
-**The question:** Dabrafenib targets the BRAF V600E mutation. It works in melanoma — ~50% response rate, FDA-approved. In colorectal cancer with the same mutation, it basically fails (~5% ORR). Could a foundation model have predicted that difference from first principles, before any trial?
+**The question:** Dabrafenib works in melanoma with a ~50% response rate and is FDA-approved. In colorectal cancer with the same mutation, it basically fails (~5% ORR). Could a foundation model have predicted that difference from first principles, before any trial?
 
 **The model:** [STATE](https://github.com/ArcInstitute/state), built by the Arc Institute. Trained on the Tahoe drug perturbation dataset. Give it a cell's baseline gene expression profile across 2000 highly variable genes and a drug label, and it predicts the post-treatment expression profile.
 
-**The data:** Baseline single-cell RNA-seq pulled from [CellxGene Census](https://chanzuckerberg.github.io/cellxgene-census/) — 300 melanoma cells (skin of body, primary tumors) and 300 colorectal cancer cells (large intestine, primary tumors). No CCLE, no proprietary data.
+**The data:** Baseline single-cell RNA-seq pulled from [CellxGene Census](https://chanzuckerberg.github.io/cellxgene-census/). All in, 300 melanoma cells (skin of body, primary tumors) and 300 colorectal cancer cells (large intestine, primary tumors).
 
 ### Files
 
