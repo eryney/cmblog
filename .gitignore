@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+venv/
+
+# Intermediate figure passes (keep only final outputs)
+may_2026/*_BioStuff_Final_Editorial_Georgia.*
+may_2026/*_CoreMemory_Editorial_v3.*
+may_2026/*_CoreMemory_Final.*
+may_2026/all_figures*.png
+may_2026/all_figures*.pdf
+may_2026/state_braf_prediction.*
+may_2026/plot1_*
+may_2026/plot2_*
+may_2026/plot3_*
+may_2026/plot4_*
+may_2026/erbb2_analysis.*
+may_2026/erbb2_analysis_*.png
+may_2026/erbb2_analysis_*.pdf
+
+# Broken/unused scripts
+may_2026/confusion_analysis.py
+may_2026/erbb2_analysis.py
+may_2026/modal_geneformer.py
+
+# Private
+CLAUDE.md
+
+# Data (lives in Modal volumes, not git)
+*.h5ad
+*.pkl
+/tmp/
+
+# macOS
+.DS_Store
