@@ -14,10 +14,6 @@ Everything here runs on free-tier infrastructure and public datasets, so you can
 
 **The data:** Baseline single-cell RNA-seq pulled from [CellxGene Census](https://chanzuckerberg.github.io/cellxgene-census/) — 300 melanoma cells (skin of body, primary tumors) and 300 colorectal cancer cells (large intestine, primary tumors). No CCLE, no proprietary data.
 
-**The honest result:** STATE predicted ~46% more transcriptional disruption in melanoma than colorectal for Dabrafenib. Looks right. But the negative control — Erlotinib, an EGFR inhibitor that failed Phase 2 in melanoma — produced nearly identical predictions (47% differential, cross-drug R = 0.996 per gene). STATE was reading cell-type context, not drug mechanism. The signal was real; the interpretation wasn't.
-
-![STATE_Final_Scientific_Rigor_v6](may_2026/STATE_Final_Scientific_Rigor_v6.png)
-
 ### Files
 
 | File | What it does |
