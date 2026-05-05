@@ -1,6 +1,6 @@
 # cmblog
 
-Computational work behind [Ask Almost a Doctor](https://corememorycm.substack.com/), a biology and medicine blog. Each monthly folder contains the code for one post: Modal scripts for cloud GPU inference, local plotting scripts, and the final figures.
+Computational work behind [Ask Almost a Doctor](https://corememorycm.substack.com/), a biology and medicine blog. Each monthly folder contains the code for one post: cloud inference scripts, local plotting scripts, and final figures.
 
 Everything here runs on free-tier infrastructure and public datasets, so you can reproduce it.
 
@@ -8,19 +8,18 @@ Everything here runs on free-tier infrastructure and public datasets, so you can
 
 ## May 2026: Can a virtual cell model predict drug outcomes?
 
-**The question:** Dabrafenib works in melanoma with a ~50% response rate and is FDA-approved. In colorectal cancer with the same mutation, it basically fails (~5% ORR). Could a foundation model have predicted that difference from first principles, before any trial?
+**The question:** Dabrafenib works in melanoma with a ~50% response rate and is FDA-approved. In colorectal cancer, it basically fails (~5% ORR). Could a foundation model have predicted that difference before any trial?
 
 **The model:** [STATE](https://github.com/ArcInstitute/state), built by the Arc Institute. Trained on the Tahoe drug perturbation dataset. Give it a cell's baseline gene expression profile across 2000 highly variable genes and a drug label, and it predicts the post-treatment expression profile.
 
 **The data:** Baseline single-cell RNA-seq pulled from [CellxGene Census](https://chanzuckerberg.github.io/cellxgene-census/). All in, 300 melanoma cells (skin of body, primary tumors) and 300 colorectal cancer cells (large intestine, primary tumors).
 
-### Files
+### Folders
 
-| File | What it does |
-|------|--------------|
-| `may_2026/modal_state.py` | Runs STATE inference on Modal (T4 GPU, free tier). Downloads model weights from HuggingFace, fetches cells from CellxGene Census, runs predictions for Dabrafenib and Erlotinib in both cancer types. |
-| `may_2026/state_plot.py` | Generates the 3-panel figure from the saved results. |
-| `shared/cm_style.py` | Shared matplotlib style (Core Memory palette). |
+| Folder | What did we look into? |
+|--------|-------------------------|
+| `may_2026/` | We tested whether STATE predicts a different transcriptional response to Dabrafenib in melanoma versus colorectal cancer transcriptomes. We also ran Erlotinib as a melanoma negative-control drug to check whether the model was seeing drug mechanism or mostly cell-type context. |
+| `shared/` | Shared plotting style and utility code for Core Memory figures. |
 
 ### Reproducing it
 
@@ -51,10 +50,10 @@ done
 python3 -m venv /tmp/state_plot_venv
 /tmp/state_plot_venv/bin/pip install "numpy<2" h5py "anndata>=0.10" \
     matplotlib seaborn scipy pandas adjustText
-/tmp/state_plot_venv/bin/python may_2026/state_plot.py
+/tmp/state_plot_venv/bin/python may_2026/state_plot_codex_corrected.py
 ```
 
-Output: `may_2026/STATE_Final_Scientific_Rigor_v6.png`
+Output: `may_2026/codex_corrected_figure.png`
 
 ### Dependencies
 
